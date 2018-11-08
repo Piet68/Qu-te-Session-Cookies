@@ -1,4 +1,20 @@
+<?php
+if (@$_POST['login'] == 'Connexion') {
+    session_start();
+    session_unset();
+    $_SESSION['utilisateur'] = $_POST['utilisateur'];
+    $_SESSION['panier']['1'] = 0;
+    $_SESSION['panier']['2'] = 0;
+    $_SESSION['panier']['3'] = 0;
+    $_SESSION['panier']['4'] = 0;
+    header('Location: index.php');
+    exit;
+}
+?>
+
+
 <?php require 'inc/head.php'; ?>
+
 <div class="container" style="margin-top:40px">
 <div class="row">
   <div class="col-sm-6 col-md-4 col-md-offset-4">
@@ -22,11 +38,11 @@
                     <span class="input-group-addon">
                       <i class="glyphicon glyphicon-user"></i>
                     </span>
-                    <input class="form-control" placeholder="Username" name="loginname" type="text" autofocus>
+                    <input class="form-control" placeholder="Username" name="utilisateur" type="text" autofocus>
                   </div>
                 </div>
                 <div class="form-group">
-                  <input type="submit" class="btn btn-lg btn-primary btn-block" value="Sign in">
+                  <input type="submit" class="btn btn-lg btn-primary btn-block" name="login" value="Connexion">
                 </div>
               </div>
             </div>

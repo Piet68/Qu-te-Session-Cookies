@@ -1,4 +1,19 @@
-<?php require 'inc/head.php'; ?>
+<?php require 'inc/head.php';
+
+
+if (isset($_GET['add_to_cart']) != 0) {
+    if ($_GET['add_to_cart'] === '46') {
+        @$_SESSION['panier']['1'] ++;
+    } elseif ($_GET['add_to_cart'] === '36') {
+        @$_SESSION['panier']['2'] ++;
+    } elseif ($_GET['add_to_cart'] === '58') {
+        @$_SESSION['panier']['3'] ++;
+    } elseif ($_GET['add_to_cart'] === '32') {
+        @$_SESSION['panier']['4'] ++;
+    }
+}
+?>
+
 <section class="cookies container-fluid">
   <div class="row">
     <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3">
@@ -9,7 +24,8 @@
           <p>Cooked by Penny !</p>
           <a  href="?add_to_cart=46" class="btn btn-primary">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add to cart
-          </a>
+          </a><br>
+            <?php echo @$_SESSION['panier']['1']. " Pecan nuts !";?>
         </figcaption>
       </figure>
     </div>
@@ -21,7 +37,8 @@
           <p>Cooked by Bernadette !</p>
           <a  href="?add_to_cart=36" class="btn btn-primary">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add to cart
-          </a>
+          </a><br>
+            <?php echo @$_SESSION['panier']['2']. " Chocolate chips !";?>
         </figcaption>
       </figure>
     </div>
@@ -33,7 +50,8 @@
           <p>Cooked by Bernadette !</p>
           <a  href="?add_to_cart=58" class="btn btn-primary">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add to cart
-          </a>
+          </a><br>
+            <?php echo @$_SESSION['panier']['3']. " Chocolate cookie !";?>
         </figcaption>
       </figure>
     </div>
@@ -45,7 +63,8 @@
           <p>Cooked by Penny !</p>
           <a  href="?add_to_cart=32" class="btn btn-primary">
             <span class="glyphicon glyphicon-plus" aria-hidden="true"></span> Add to cart
-          </a>
+          </a><br>
+            <?php echo @$_SESSION['panier']['4']. " M&Ms cookies !";?>
         </figcaption>
       </figure>
     </div>
